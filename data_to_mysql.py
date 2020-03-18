@@ -2,7 +2,9 @@ import xlrd
 import time
 import pymysql
 
-execl_path = 'D:\Xray\Xray_test_data.xlsx'
+from tupleliststr import list_to_str
+
+execl_path = 'Xray_test_data.xlsx'
 excel = xlrd.open_workbook(execl_path, encoding_override='utf-8')
 all_sheet = excel.sheets()
 print(all_sheet)
@@ -29,10 +31,16 @@ report_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(report_date_time
 Report_info = [report_num, report_date]
 
 # 仪器设备表--instrument部分
-instrument_name = sheet2.cell(6, 1).value.strip()
-instrument_num = str(int(sheet2.cell(7, 1).value))
-print(instrument_num)
-Instrument = [instrument_name, instrument_num]
+instrument = excel.sheet_by_name(u'Instruments')
+print(instrument)
+# table.row(rowx)
+print(instrument.nrows)
+nrows = instrument.nrows  # 获取表格总行数
+Instrument = [instrument.row_values(i + 1) for i in range(nrows - 1)]
+Instrument = list_to_str(Instrument[0])  # 把所有元素转化成字符型
+print(Instrument)
+# 它不应该插入到instrument表中，而是要从该表中获得ID
+
 
 # 转化回日期格式
 # timestr = time.strftime('%Y-%m-%d', time.localtime(report_date_timestamp ))

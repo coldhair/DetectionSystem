@@ -1,6 +1,6 @@
 import xlrd,re
 sheet_ob=xlrd.open_workbook('item.xlsx',encoding_override='utf8')
-sheet=sheet_ob.sheet_by_index(0)
+sheet=sheet_ob.sheet_by_index(1)
 nrows=sheet.nrows
 lists=[sheet.row_values(i+1,1,5) for i in range(nrows-1)]
 # for x in lists:
@@ -15,3 +15,6 @@ for i in range(nrows-1):
         print(lists[i],i)
 
 print(lists)
+
+for ne in lists:
+    print(ne)

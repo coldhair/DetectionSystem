@@ -38,6 +38,7 @@ print(instrument)
 print(instrument.nrows)
 nrows = instrument.nrows  # 获取表格总行数
 instrument_list = [instrument.row_values(i + 1) for i in range(nrows - 1)]
+
 print(instrument_list)
 
 Sample_sheet=excel.sheet_by_name(u'Sampling')

@@ -22,6 +22,15 @@ def any_to_str(a):
                     pass
     return str_list
 
+def list_to_str(mylist):
+    for i in range(len(mylist)):
+        if isinstance(mylist[i],str):
+            pass
+        else:
+            mylist[i]=str(int(mylist[i]))
+    return mylist
+
 # # 以下为测试部分
 # b = ((1, 2, 3), (4, 5, 6,), (7, 8, 9))
 # print(any_to_str(b))
+print(len('硅藻土粉尘（游离SiO2含量<10%）'))
