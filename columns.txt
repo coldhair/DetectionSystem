@@ -1,0 +1,6 @@
+检测项目ID--test_item_id
+项目名称--test_item_name
+样品名称--sample_name
+接触限值mac--mac_limit
+接触限值twa--twa_limit
+接触限值stel--stel_limit
