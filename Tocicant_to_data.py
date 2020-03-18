@@ -41,7 +41,7 @@ instrument_list = [instrument.row_values(i + 1) for i in range(nrows - 1)]
 print(instrument_list)
 
 Sample_sheet=excel.sheet_by_name(u'Sampling')
-s_nrows=Sample_sheet.nrows
+s_nrows=Sample_sheet.nrows # 获取表格总行数
 sample_list=[Sample_sheet.row_values(i+1) for i in range(s_nrows-1)]
 print(sample_list)
 

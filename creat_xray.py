@@ -9,8 +9,8 @@ from docx.oxml import OxmlElement
 from pagesnum import add_numpages, add_page_number
 import pymysql
 import cntime
-import merger
-import tupleliststr1
+import merger # 同类归并
+import tupleliststr
 
 document = Document()
 document.styles['Normal'].font.name = u'Times New Roman'
@@ -458,7 +458,7 @@ for station_tittle in station_tittle_ob:
     xray_result_ob = cursor.fetchall()
     col_num = len(xray_result_ob)
     print('这是', xray_result_ob, len(xray_result_ob))
-    xray_result=tupleliststr1.any_to_str(xray_result_ob)
+    xray_result=tupleliststr.any_to_str(xray_result_ob)
 
     headname = ['检测位置', '限值标准（µGy/h）', '检测空气比释动能率最大值 （µGy/h）']
     table = document.add_table(rows=8, cols=2 + col_num, style='Table Grid')

@@ -1,4 +1,4 @@
-# 将数字、整型、浮点型的混合列表内元素全部转化为字符型
+# 将数字、整型、浮点型的混合列表内元素全部转化为字符型，并做了部分替换
 # 将二维元组转化为二维列表
 def tuple_list(a):
     b = list(a)
@@ -16,8 +16,11 @@ def any_to_str(a):
                 pass
             else:
                 str_list[i][j] = str(str_list[i][j])
+                if str_list[i][j] == '0.0':  # 把0.0替换成‘—’
+                    str_list[i][j] = '—'
+                else:
+                    pass
     return str_list
-
 
 # # 以下为测试部分
 # b = ((1, 2, 3), (4, 5, 6,), (7, 8, 9))

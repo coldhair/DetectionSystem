@@ -52,6 +52,13 @@ CREATE TABLE instrument
     instrument_belong   TINYINT UNSIGNED
 );
 
+# 创建报告书所用的仪器设备表instr_report
+CREATE TABLE instr_report
+(
+    instr_report_id SMALLINT UNSIGNED NOT NULL,
+    instr_id        SMALLINT UNSIGNED NOT NULL
+);
+
 # 创建检测项目表test_item
 CREATE TABLE test_item
 (
