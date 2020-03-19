@@ -1,0 +1,17 @@
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (1, 'GBZ 159-2004', '工作场所空气中有害物质监测的采样规范', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (2, 'GBZ/T 192.1-2007', '工作场所空气中粉尘测定 第1部分：总粉尘浓度', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (3, 'GBZ/T 192.4-2007', '工作场所空气中粉尘测定 第4部分：游离二氧化硅含量', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (4, 'GBZ/T 300.66-2017', '工作场所空气有毒物质测定 第66部分：苯、甲苯、二甲苯和乙苯', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (5, 'GBZ/T 300.11-2017', '工作场所空气有毒物质测定 第11部分：铜及其化合物', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (6, 'GBZ/T 300.9-2017', '工作场所空气有毒物质测定 第9部分：铬及其化合物', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (7, 'GBZ/T 160.16-2004', '工作场所空气有毒物质测定 镍及其化合物', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (8, 'GBZ/T 300.133-2017', '工作场所空气有毒物质测定 第133部分：乙腈、丙烯腈和甲基丙烯腈', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (9, 'GBZ/T 300.17-2017', '工作场所空气有毒物质测定第17部分：锰及其化合物', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (10, 'GBZ/T 160.63-2007', '工作场所空气有毒物质测定 饱和脂肪族酯类化合物', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (11, 'GBZ/T 189.3-2018', '工作场所物理因素测量 第3部分：1Hz-100kHz电场和磁场', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (12, 'GBZ/T 189.8-2007', '工作场所物理因素测量 第8部分：噪声', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (13, 'GBZ/T 189.7-2007', '工作场所物理因素测量 第7部分：高温', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (14, 'GBZ 2.1-2007', '工作场所有害因素职业接触限值 第1部分：化学有害因素', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (15, 'GBZ 2.2-2007', '工作场所有害因素职业接触限值 第2部分：物理因素', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (16, 'GBZ 127－2002', '射线行李包检查系统卫生防护标准', 0, null, null, null);
+INSERT INTO report_sys.gb_info (gb_id, gb_num, gb_name, gb_status, gb_category, gb_control, gb_date) VALUES (17, 'GB 18871-2002', '电离辐射防护与辐射源安全基本标准', 0, null, null, null);
