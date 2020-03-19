@@ -41,8 +41,20 @@ instrument_list = [instrument.row_values(i + 1) for i in range(nrows - 1)]
 
 print(instrument_list)
 
-Sample_sheet=excel.sheet_by_name(u'Sampling')
-s_nrows=Sample_sheet.nrows # 获取表格总行数
-sample_list=[Sample_sheet.row_values(i+1) for i in range(s_nrows-1)]
+Sample_sheet = excel.sheet_by_name(u'Sampling')
+s_nrows = Sample_sheet.nrows  # 获取表格总行数
+sample_list = [Sample_sheet.row_values(i + 1) for i in range(s_nrows - 1)]
 print(sample_list)
 
+db = pymysql.connect('localhost', 'root', '6579178', 'report_sys')
+curser = db.cursor()
+
+# 插入单位信息并获得其uint_id
+unit_info_sql = "INSERT INTO unit_info(unit_name, unit_address, unit_linkman, unit_phone, zipcode) VALUES(%s,%s,%s,%s,%s)"
+curser.execute(unit_info_sql, Unit_info)
+db.commit()
+get_id_sql = "select last_insert_id() FROM unit_info"
+curser.execute(get_id_sql)
+get_id = curser.fetchone()
+uint_id = get_id[0]
+print(uint_id)
