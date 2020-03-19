@@ -65,9 +65,9 @@ CREATE TABLE test_item
     test_item_id   MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     test_item_name VARCHAR(20),
     sample_name    VARCHAR(20),
-    mac_limit      FLOAT(6, 3),
-    twa_limit      FLOAT(6, 3),
-    stel_limit     FLOAT(6, 3)
+    mac_limit      FLOAT(8, 3),
+    twa_limit      FLOAT(8, 3),
+    stel_limit     FLOAT(8, 3)
 );
 
 # 检测项目与国家标准关系表（多对多关系表）test_item_gb

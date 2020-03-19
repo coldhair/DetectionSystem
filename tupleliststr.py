@@ -33,4 +33,3 @@ def list_to_str(mylist):
 # # 以下为测试部分
 # b = ((1, 2, 3), (4, 5, 6,), (7, 8, 9))
 # print(any_to_str(b))
-print(len('硅藻土粉尘（游离SiO2含量<10%）'))
