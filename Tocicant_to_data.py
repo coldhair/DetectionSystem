@@ -39,12 +39,12 @@ print(instrument.nrows)
 nrows = instrument.nrows  # 获取表格总行数
 instrument_list = [instrument.row_values(i + 1) for i in range(nrows - 1)]
 
-print(instrument_list)
 
+# 采样信息表部分
 Sample_sheet = excel.sheet_by_name(u'Sampling')
 s_nrows = Sample_sheet.nrows  # 获取表格总行数
 sample_list = [Sample_sheet.row_values(i + 1) for i in range(s_nrows - 1)]
-print(sample_list)
+print(sample_list[0])
 
 db = pymysql.connect('localhost', 'root', '6579178', 'report_sys')
 curser = db.cursor()
@@ -53,8 +53,28 @@ curser = db.cursor()
 unit_info_sql = "INSERT INTO unit_info(unit_name, unit_address, unit_linkman, unit_phone, zipcode) VALUES(%s,%s,%s,%s,%s)"
 curser.execute(unit_info_sql, Unit_info)
 db.commit()
-get_id_sql = "select last_insert_id() FROM unit_info"
-curser.execute(get_id_sql)
+get_unit_id_sql = "SELECT last_insert_id() FROM unit_info"
+curser.execute(get_unit_id_sql)
 get_id = curser.fetchone()
 uint_id = get_id[0]
 print(uint_id)
+
+# 插入报告书信息并获取报告书report_id
+Report_info.append(uint_id)
+report_info_sql = "INSERT INTO report_info( report_num, report_date,report_unit) VALUES (%s,%s,%s)"
+curser.execute(report_info_sql,Report_info)
+db.commit()
+get_report_id_sql = "SELECT last_insert_id() FROM report_info"
+curser.execute(get_report_id_sql)
+get_report_id = curser.fetchone()
+report_id = get_report_id[0]
+print(report_id)
+
+# 插入工作岗位信息
+job_post_lists=[]
+for i in range(len(sample_list)):
+    job_post_list=[sample_list[i][5],sample_list[i][6],sample_list[i][7],sample_list[i][11], uint_id, report_id]
+    job_post_lists.append(job_post_list)
+job_post_sql="INSERT INTO job_post(department, location, job_position, exposed_time, unit_id, report_id) VALUES (%s,%s,%s,%s,%s,%s)"
+curser.executemany(job_post_sql,job_post_lists)
+db.commit()

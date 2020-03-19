@@ -5,8 +5,8 @@ db = pymysql.connect('localhost', 'root', '6579178', 'report_sys')
 cursor = db.cursor()
 sql ="INSERT INTO gb_info(gb_num,gb_name) VALUES (%s, %s)"
 
-pattern=re.compile(r'^G.*\d{4}')
-pattern2=re.compile(r'[\u4e00-\u9fa5].*') # 匹配中文字符
+pattern=re.compile(r'^G.+\d{4}')
+pattern2=re.compile(r'[\u4e00-\u9fa5|X].+') # 匹配中文字符或者字符X
 with open('gb.txt',encoding='utf8') as file:
     lines=file.readlines()
     print(lines)
@@ -22,5 +22,5 @@ with open('gb.txt',encoding='utf8') as file:
         result.append(result2[0])
         print(result)
         # print(sp)
-        cursor.execute(sql,result)
-db.commit()
+#         cursor.execute(sql,result)
+# db.commit()
