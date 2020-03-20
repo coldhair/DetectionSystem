@@ -1,6 +1,8 @@
 import pymysql
 import xlrd
 
+# 将检测项目和对应的国家标准导入到数据库
+
 execl = xlrd.open_workbook('item_gb.xlsx', encoding_override='utf-8')
 sheet = execl.sheet_by_index(0)
 print(sheet)

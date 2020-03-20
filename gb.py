@@ -1,6 +1,8 @@
 import re
 import pymysql
 
+# 将国家标准导入数据库
+
 db = pymysql.connect('localhost', 'root', '6579178', 'report_sys')
 cursor = db.cursor()
 sql ="INSERT INTO gb_info(gb_num,gb_name) VALUES (%s, %s)"
@@ -12,10 +14,10 @@ with open('gb.txt',encoding='utf8') as file:
     print(lines)
     for line in lines:
         # print(line)
-        sp=line.split('工作')
+        # sp=line.split('工作')
         # sp=[sp[0].strip(),'工作'+ sp[1].strip()]
         result=pattern.findall(line.strip())
-        print('这是',result)
+        # print('这是',result)
         result2=pattern2.findall(line.strip())
 
         print(result2)
