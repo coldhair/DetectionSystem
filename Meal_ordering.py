@@ -2,6 +2,7 @@ from docx import Document
 from docx.oxml.ns import qn
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT, WD_UNDERLINE
 from docx.shared import Pt
+import math
 
 with open('Meal_ordering.txt', encoding='utf8') as file:
     lines = file.readlines()
@@ -23,13 +24,15 @@ p = doc.add_paragraph()
 p.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
 run = p.add_run('2020年3月21日午餐')
 run.font.size = Pt(18)
+#
+# if num % 13 == 0:
+#     columns = num / 13
+# else:
+#     columns = num // 13 + 1
 
-if num % 13 == 0:
-    columns = num / 13
-else:
-    columns = num // 13 + 1
+columns = math.ceil(num / 13)  # 向上取整，跟上面注释掉的是相同效果
 
-table = doc.add_table(rows=14, cols= columns * 3, style='Table Grid')
+table = doc.add_table(rows=14, cols=columns * 3, style='Table Grid')
 # table.cell(0, 0).width = Pt(30)  # 设置列宽
 # table.cell(0, 1).width = Pt(120)  # 设置列宽
 # table.cell(0, 2).width = Pt(30)  # 设置列宽
@@ -38,18 +41,17 @@ table = doc.add_table(rows=14, cols= columns * 3, style='Table Grid')
 
 for x in range(columns):
     row_cells = table.rows[0].cells
-    row_cells[x*3+0].text='序号'
-    row_cells[x*3+1].text = '姓名'
-    row_cells[x*3+2].text = '签收'
-    for i in range(1,num):
-        if i%13==0:
-            m,y=13,i//13-1
+    row_cells[x * 3 + 0].text = '序号'
+    row_cells[x * 3 + 1].text = '姓名'
+    row_cells[x * 3 + 2].text = '签收'
+    for i in range(1, num):
+        if i % 13 == 0:
+            m, y = 13, i // 13 - 1
         else:
-            m,y=i%13,i//13
+            m, y = i % 13, i // 13
         row_cells = table.rows[m].cells
-        row_cells[y*3+0].text=str(i)
-        row_cells[y*3+1].text = lines[i-1].strip()
-        row_cells[y*3+2].text ='\t'
-
+        row_cells[y * 3 + 0].text = str(i)
+        row_cells[y * 3 + 1].text = lines[i - 1].strip()
+        row_cells[y * 3 + 2].text = '\t'
 
 doc.save('neww.docx')
