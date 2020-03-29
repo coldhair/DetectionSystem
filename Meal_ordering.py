@@ -3,6 +3,9 @@ from docx.oxml.ns import qn
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT, WD_UNDERLINE
 from docx.shared import Pt
 import math
+import time
+d=time.strftime('%Y年%m月%d日',time.localtime())
+print(d)
 
 with open('Meal_ordering.txt', encoding='utf8') as file:
     lines = file.readlines()
@@ -22,7 +25,7 @@ run.font.size = Pt(21)
 
 p = doc.add_paragraph()
 p.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
-run = p.add_run('2020年3月21日午餐')
+run = p.add_run(d+'午餐')
 run.font.size = Pt(18)
 #
 # if num % 13 == 0:
