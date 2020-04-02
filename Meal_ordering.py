@@ -47,7 +47,7 @@ for x in range(columns):
     row_cells[x * 3 + 0].text = '序号'
     row_cells[x * 3 + 1].text = '姓名'
     row_cells[x * 3 + 2].text = '签收'
-    for i in range(1, num):
+    for i in range(1, num+1):
         if i % 13 == 0:
             m, y = 13, i // 13 - 1
         else:
