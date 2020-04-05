@@ -5,7 +5,8 @@ def dedupe(items):
             yield item
             seen.add(item)
 
-#这个方法仅仅在序列中元素为 hashable 的时候才管用。
+
+# 这个方法仅仅在序列中元素为 hashable 的时候才管用。
 
 if __name__ == '__main__':
     a = [1, 5, 2, 1, 9, 1, 5, 10]
