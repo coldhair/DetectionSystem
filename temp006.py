@@ -10,4 +10,4 @@ od['grok'] = 4
 for key in od:
     print(key, od[key])
 
-print(json.dumps())
+print(json.dumps(od))
