@@ -2,7 +2,7 @@
 import re
 
 # 打开文件并将内容转化为一个字符串
-with open('Names.txt') as file:
+with open('../Names.txt') as file:
     names = file.readlines()
     s = ''.join(names)
 
