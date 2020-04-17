@@ -13,6 +13,7 @@ from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LTTextBoxHorizontal, LAParams
 from pdfminer.pdfpage import PDFTextExtractionNotAllowed
 import os
+import csv
 
 
 def parse(Path):
@@ -51,7 +52,6 @@ section.page_height = new_height
 document.styles['Normal'].font.name = u'宋体'
 document.styles['Normal']._element.rPr.rFonts.set(qn('w:eastAsia'), u'宋体')
 
-
 # 正则表达式部分
 datepat = re.compile(r'(20[1-2]\d)[年\s]{1,3}([0-1][0-9])[月\s]{1,3}([0-3][0-9])')
 namedate = re.compile(r'吕艳朋|张高峰|马好|邸欲晓|李铭')
@@ -62,7 +62,9 @@ valuepat = re.compile(r'[¥|￥]\s?(\d+\.\d\d)\n')
 monthpat = re.compile(r'[帐|账]期:20[1-2]\d.?([0-1][0-9])')
 
 if __name__ == '__main__':
+    iterow = []
     headname = ['开票日期', '报销人', '开票单位', '发票代码', '发票号码', '报销类别', '月控制额度', '报销月份', '发票金额', '张数']
+    iterow.append(headname)
     table = document.add_table(rows=1, cols=10, style='Table Grid')
     headrow_cells = table.rows[0].cells
     for i in range(10):
@@ -72,7 +74,7 @@ if __name__ == '__main__':
     for root, dirs, files in os.walk(r"D:\phone\pdf"):
         for file in files:
             print(file.split('.')[-1])
-            if file.split('.')[-1]=='pdf':
+            if file.split('.')[-1] == 'pdf':
                 dir = os.path.join(root, file)
                 Path = open(dir, 'rb')
                 invoice_info = parse(Path)
@@ -108,4 +110,9 @@ if __name__ == '__main__':
                 for i in range(10):
                     row_cells[i].text = lis[i]
                 lis = []
+                iterow.append(lis)
+    with open('some.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(iterow)
+
     document.save(r'D:\phone\话费报销信息.docx')
