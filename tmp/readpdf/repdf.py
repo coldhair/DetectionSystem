@@ -17,10 +17,11 @@ import csv
 
 
 def parse(Path):
-    parser = PDFParser(Path)
+    parser = PDFParser(Path) #parser的意思是解析器、分析程序
     document = PDFDocument(parser)
     re_list = []
 
+    # 判断PDF是否能够解析
     if not document.is_extractable:
         raise PDFTextExtractionNotAllowed
     else:
