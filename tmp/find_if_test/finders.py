@@ -15,7 +15,7 @@ for each_sheet in all_sheet:
 
 sheet2 = excel.sheet_by_name(u'all_name')
 
-# 用人单位表--unit_info 部分
+# 获取前两列的内容，并合并成二维列表
 p0=sheet2.col_values(0)
 p1=sheet2.col_values(1)
 p=list(zip(p0,p1))
@@ -26,7 +26,7 @@ print(p)
 idlist=[]
 with open('testlist1.txt',encoding='GBK') as f:
     for x in f:
-        id = idpat.findall(x)[0]  # 发票代码
+        id = idpat.findall(x)[0]  # ID
         idlist.append(id)
 
 print(idlist)
