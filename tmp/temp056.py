@@ -31,6 +31,11 @@ def clean_space(text):
 
 
 st = ''
+
+# 英文间的逗号
+en_comma=re.compile('[a-zA-Z](,)[a-zA-Z]', re.L)
+
+
 for line in string.splitlines():
     if line.split():  # 通过该判断去掉空行
         line = line.strip()  # 去掉段前后空格
