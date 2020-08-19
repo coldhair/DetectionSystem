@@ -2,7 +2,7 @@ import re
 from docx import Document
 from docx.enum.section import WD_ORIENT
 from docx.oxml.ns import qn
-from docx.shared import Pt
+
 
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
