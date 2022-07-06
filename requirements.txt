@@ -1,7 +1,7 @@
 pypinyin
 cffi==1.14.0
 cryptography==2.8
-lxml==4.5.0
+lxml==4.9.1
 pycparser==2.20
 PyMuPDF==1.16.16
 PyMySQL==0.9.3
